@@ -10,7 +10,7 @@ test('still a function', t =>
   t.is(R.type(binded(console).log), 'Function'));
 
 test('still a function and not throws', t =>
-  t.notThrows(() => binded(console).log(null)));
+  t.notThrows(() => binded(console).log()));
 
 test('even Promise.reject is a function', t =>
   t.is(R.type(binded(Promise).reject), 'Function'));
@@ -19,3 +19,4 @@ test('Promise.resolve still works', t =>
   binded(Promise).resolve(true).then(i => t.true(i)));
 
 test('empty input', t => t.throws(() => { binded(); }, TypeError));
+test('invalid input', t => t.throws(() => { binded(2); }, TypeError));
