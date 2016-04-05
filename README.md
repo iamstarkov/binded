@@ -16,28 +16,43 @@
 ```js
 import binded from 'binded';
 
-binded('unicorns'); // unicorns
+const { log, warn } = binded(console);
+const { resolve, reject, all } = binded(Promise);
+
+resolve('unicorns').then(log) // unicorns
+
+binded(console); /*
+  { log: [Function: bound bound ],
+    info: [Function: bound bound ],
+    warn: [Function: bound bound ],
+    error: [Function: bound bound ],
+    dir: [Function: bound bound ],
+    time: [Function: bound bound ],
+    timeEnd: [Function: bound bound ],
+    trace: [Function: bound bound trace],
+    assert: [Function: bound bound ],
+    Console: [Function: bound Console] } */
+
+binded(Promise); /*
+  { resolve: [Function: bound resolve],
+    all: [Function: bound all],
+    race: [Function: bound race],
+    reject: [Function: bound reject] } */
 ```
 
 ## API
 
-### binded(input, [options])
+### binded(input)
+
+Return an Object with functions of methods binded to input, so you can use `log`
+from `console` without it throwing an `Error`.
 
 #### input
 
 *Required*  
-Type: `String`
+Type: `Function` or `Object`
 
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `Boolean`  
-Default: `false`
-
-Lorem ipsum.
+Function Constructor or an Object.
 
 ## License
 
