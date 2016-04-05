@@ -1,6 +1,6 @@
 {
   "name": "binded",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "binded methods as pure functions",
   "main": "index.es5.js",
   "files": [
