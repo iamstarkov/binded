@@ -50,7 +50,9 @@
     "npm-run-all": "^1.5.1",
     "nyc": "^6.0.0",
     "pinkie-promise": "^2.0.0",
-    "ramda": "^0.20.1",
     "rimraf": "^2.5.2"
+  },
+  "dependencies": {
+    "ramda": "^0.20.1"
   }
 }
